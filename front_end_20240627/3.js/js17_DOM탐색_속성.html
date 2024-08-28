@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>js17_DOM탐색_속성</title>
+<script type="text/javascript">
+/* 
+		DOM객체의 종류 
+		- Document: 문서에 접근할 때 사용 -> 문서객체 
+		- Element: tag, 요소, 엘리먼트로 불림 -> 태그객체 
+										-> DOM 탐색 메서드:getElementBy..... 직접선택방식 
+		- Attribute: 속성을 객체로 정의 -> id,  class, title, style, selected, checked
+		- Text: text를 객체로 정의 -> <p>text</p> -> text객체 
+		- Node: html을 구성하는 모든 요소 정의 
+		var ele = new Element(); (x) -> 메서드 통해 객체 
+		
+		객체를 생성하는 방법 
+		1. DOM탐색 메서드를 이용(직접선택)
+		2. DOM탐색 속성을 이용(간접선택: 관계썽)
+		 - parentNode속성: 타겟 요소의 부모요소를 구하는 송석: 반환타임 Node
+		 - parentElement속성: 동일한 기능: 반환타입 Element
+		 
+		 - childNodes 속성: 타겟 요소의 자식요소를 구하는 속성 : 반환타입 Nodes 
+		 - children 속성: 동일한 기능 : 반환타입 Element
+		 
+		 - previousSibling/nextSibling: 형제 요소를 구함: 반환 타입 Node
+		 - previousElementSibling/newtElementSibling : 기능 동일 : 반환 타입 Element
+		 
+		 3. create 메서드를 이용하는 방법 
+		 - createElement(): Tag
+		 - createAttribute(): 속성 
+		 - createTextNode(): text 
+				*/
+				
+		function searchPar(){
+			 var child02 = document.getElementsByTagName("p")[1]; //target탐색 
+			 console.log(child02.nodeName); // 요소 객체의 이름 반환 
+			 console.log(child02.tagName); // 태그 객체의 이름 반환 
+			 var divNode = child02.parentNode; //부모요소 구하기 
+			 
+			 
+			 var divEle = child02.parentElemnet; //부모 엘리먼트 구하기 
+			 console.log(divEle.nodeName);
+			 
+			 divEle.style.backgroundColor="yellow";
+		 }
+		 
+		 function searchChi(){
+			 var div = document.querySelectorAll("div")[0]; //target요소 
+			 
+			 // Node를 반환하는 속성을 이용할 경우: 자식 위치에 있는 모든 요소가 반환
+			 var divChildNodes=div.childNodes;
+			 console.log(divChildNodes);	 
+			 
+			 var divChildElements = div.children; //[p,p,p]
+			 divChildElements[0].style.color="red";
+		 }
+		 
+		 function first_LastChi(){
+			 var div = document.querySelectorAll("div")[0];
+			 
+			 var firstChi = div.firstChild; //node 반환
+			 var firtChiEld = div.firstElemetChild; //element 반환
+			 console.log(firstChi.nodeName+","+firstChiEle.nodeName);
+		 }
+		 
+		 function sliblingTest(){
+			 var child02 = document.getElemnetsByTagName("p")[1];
+			 
+			 //Node반환
+			 var preP = child02.previousSibling; // target 앞에 오는 node 
+			 var nextP = child02.nextSibling; // target 뒤에 오는 node
+			 console.log(preP.textContent+":"+nextP.nodeName);
+			 //Element반환
+			 var prePEle = child02.previousElementSibling;
+			 var nextPEle = child02.nextElementSibling;
+			 console.log(prePEle.textContent+":"+nextPEle.textcontent);
+		 }
+</script>
+</head>
+<body>
+<div> "\n"
+	<p>child01</p> "\n"
+	<p>child02</p> "\n"
+	<p>child03</p> "\n"
+</div>
+<button onclick="searchPar()">부모탐색</button>
+<button onClick="searchChi()">자식탐색</button>
+<button onclick="first_LastChi()">자식탐색</button>
+</body>
+</html>

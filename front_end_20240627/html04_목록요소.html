@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>html04_목록요소.html</title>
+<style type="text/css">
+	li > ul {display:none;}
+	ul li {list-style: none;}
+</style>
+<script type="text/javascript">
+	window.onload=function(){
+		document.querySelectorAll("b")[0].onclick=function(){
+			doucument.querySelectorAll("li>ul")[0].style.display="block";
+		}
+	}
+</script>
+</head>
+
+<body>
+<h1>비순차적 목록 요소</h1>
+<ul>
+	<li><b>java</b>
+		<ul>
+			<li>변수의 사용</li>
+			<li>제어문</li>
+			<li>객체지향[상속,은닉화,다형성]</li>
+ 		</ul>
+ 	</li>
+	<li><b>DB</b>
+		<ul>
+			<li>변수의 사용</li>
+			<li>제어문</li>
+			<li>객체지향[상속,은닉화,다형성]</li>
+ 		</ul>
+	</li>	
+	<li>HTML</li>
+	<li>CSS</li>
+</ul>
+</body>
+
+</body>
+</html>

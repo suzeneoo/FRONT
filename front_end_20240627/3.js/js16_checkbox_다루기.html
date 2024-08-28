@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>js15_checkbox_다루기.html</title>
+<style type="text/css">
+	#red,#yellow,#blue,#black{
+		width: 150px;
+		height: 150px;
+		/* background-color: pink; */
+		border: 1px solid gray;
+		color: gray;
+		text-align: center;
+		line-height: 150px;
+		position: absolute; /* 위치관계가 깨져서 다 위로 올라감 다 / 한 곳으로 뭉침*/ 
+	}
+	
+	#yellow{
+		left: 160px;
+	}
+	
+	#blue{
+		top: 160px;
+	}
+	
+	#black{
+		left:160px;
+		top:160px;
+	}
+	
+	#base{
+		position: absolute;
+		top: 320px;
+	}
+	
+	/* !!! 체크한 곳만 체크한곳에 배경색을 줄것임 !!! */
+</style>
+
+<script type="text/javascript">
+	function allSel(chkAllObj){
+		console.log(chkAllObj.checked); //전체선택 체크박스의 체크여부를 확인할 수 있다. true, false로 console 창에서 나타냄 
+		
+		var chks = document.getElementsByName("chk"); // [chk,chk,chk,chk]
+	
+		chks.forEach((chk)=>{
+			chk.checked = chkAllObj.checked;
+		});
+	}
+	//체크박스들의 체크여부를 확인해서 4개의 박스에 배경색을 적용 
+	function sel(){
+		//체크박스 여러개 탐색 
+		var chks = document.getElementsByName("chk"); // 배열로 가져옴 
+		chks.forEach((chk)=>{
+			if(chk.checked){ //true 아니면 false 
+				document.getElementById(chk.value).style.backgroundColor=chk.value;
+			}else{
+				document.getElementById(chk.value).style.backgroundColor="white"
+			}
+		});
+	}
+	
+	
+	//초기화 작업 
+	function clearDiv(){
+		/* var divs = document.getElementsByTagName("div");
+		divs.forEach((div)=>{
+			div.style.backgroundColor="white";
+		}); */ //초기화 1번 방법
+		
+		//form요소 구성요소중에 초기화기능:
+		// input type="reset" ---> reset()
+		// document객체의 속성: body, forms................등 몇 가지의 속성이 있다. 
+		// 이 속성들은 dom탐색 없이 쓸 수 있다. 
+		document.forms[0].reset(); //form요소 내부의 요소들을 초기화한다. //초기화 2번 방법 
+		
+	}
+</script>
+</head>
+<body>
+<div id="red">red</div> <!-- 박스형태로 나와야함  -->
+<div id="yellow">yellow</div>
+<div id="blue">blue</div>
+<div id="black">black</div>
+<div id="base">
+	<form> <!-- 사용자가 입력한 값을 서버쪽으로 전송할 때 form요소를 많이 사용한다.  -->
+		<input type="checkbox" name="all" onclick="allSel(this)"/>전체선택<br/>
+		<!-- this 자기요소인 input을 가르킴 -->
+		<input type="checkbox" name="chk" value="red" checked="checked"/>빨강<br/>
+		<!-- 사용자가 체크를 하지 않아도 기본으로 체크가 되어 있음 -->
+		<input type="checkbox" name="chk" value="yellow"/>노랑<br/>
+		<input type="checkbox" name="chk" value="blue"/>파랑<br/>
+		<input type="checkbox" name="chk" value="black"/>검정<br/>
+		<button type="button" onclick="sel()">선택</button> <!-- submit(전송) 기능이 있음 그래서 누르면 선택된 것이 사라짐 -->
+		<!-- type="button" 쓰는 것을 잘 알아두기 -->
+		<button onclick="clearDiv()">초기화</button>
+	</form>
+</div>
+<!-- !!문제점!!
+전체선택을 하고 하나를 선택 풀면 전체선택 체크도 없어져야 한다. 
+form안에는 submit(전송)기능이 있는데 아무것도 체크하지 않고 선택버튼을 누르면 아무것도 없는 채로 전송이 된다. 
+따라서 아무것도 누르지 않고 선택 버튼을 누르면 하나 이상은 선택해 달라고 경고창이 떠야한다. -->
+</body>
+</html>

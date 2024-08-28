@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>html06_폼요소</title>
+
+<script type="text/javascript">
+	// java script에 location 객체에서 전송된 값을 확인할 수 있다. 
+	onload=function(){
+		console.log(location.search);
+	}
+</script>
+</head>
+
+<body>
+	<h1>폼요소</h1>
+	<h2>POST전송방식</h2>
+	<form action="html06_폼요소.html" method="post">
+		<fieldset>
+			<legend> 기본 정보 </legend>
+			<label for="id"> 아이디 : </label>
+			<input type="text" name="id" value="입력값" id="id"/><br/> <!-- value를 쓰지 않아도 입력 된 값이 전송된다.  -->
+			<label for="id"> 이름 : </label>
+			<input type="text" name="name" value="입력값" id="name"/>
+		</fieldset>
+		<fieldset>
+			<legend> 기타 정보 </legend>
+			<label for="addr"> 주소 : </label>
+			<input type="text" name="addr" id="addr"/><br/> <!-- value를 쓰지 않아도 입력 된 값이 전송된다.  -->
+			<label for="email"> 이메일 : </label>
+			<input type="text" name="email" id="email"/>
+		</fieldset>
+		<br/>
+		<input type="submit" value="가입"/> 
+	</form>
+	
+	<h2>GET전송방식</h2>
+	<p>get방식은 한글이 깨질 수 있다.</p>
+	<a href="html06_폼요소.html?id=hk&name=hankyung">가입</a>
+	<a href="https://www.google.com/search?q=javascript+&sca_esv=d674af110d3d1eb5&s
+	ca_upv=1&bih=730&biw=1536&hl=ko&sxsrf=ADLYWILQUVJl5vVyBkdpoklO1JIPkg2uSQ%3A1723515443203&source=hp&ei
+	=M8K6ZvzmCPvI1e8Pl6OyuA8&iflsig=AL9hbdgAAAAAZrrQQ5T4PGKSlUpFnObwi5sCDaM5PFgm&ved=0ahUKEwi8zIOu8_CH
+	AxV7ZPUHHZeRDPcQ4dUDCBg&uact=5&oq=javascript+&gs_lp=Egdnd3Mtd2l6IgtqYXZhc2NyaXB0IDILEAAYgAQYsQMY
+	gwEyCxAAGIAEGLEDGIMBMggQABiABBixAzILEAAYgAQYsQMYgwEyCBAAGIAEGLEDMgsQABiABBixAxiDATILEAAYgAQYsQMYgwEyCBAA
+	GIAEGLEDMgsQABiABBixAxiDATILEAAYgAQYsQMYgwFIkiBQAFiSH3AGeACQAQOYAdwBoAHwHKoBBjAuNC4xNLgBA8gBAPgBAZgCE6AClxWoA
+	grCAgQQIxgnwgIKECMYgAQYJxiKBcICERAuGIAEGLEDGNEDGIMBGMcBwgIEEAAYA8ICCxAuGIAEGLEDG
+	IMBwgIFEAAYgATCAgcQIxgnGOoCwgIOEC4YgAQY0QMY1AIYxwGYAwOSBwY2LjEuMTKgB4-PAQ&sclient=gws-wiz">전송</a>
+	<hr/>
+	<h2>폼 구성요소</h2>
+	<form action="html06_폼요소.html" method="get" enctype="multipart/form-data">
+		<h3>회원가입</h3>
+		
+		<fieldset>
+			<legend>기본정보</legend>
+			<p>
+				<label for="LabelID"> 아이디 : </label>
+				<input type="text" id="LabeID" name="id" placeholder="아이디는 영문으로 입력하세요." 
+														 required="required"
+														 autofocus="autofocus"
+														 autocomplete="off"/> 		<!--  pattern="[a-z]{3}" -->
+				<!-- placeholder 힌트 주는 것 -->
+			</p>
+			<p>
+				<label for="LabelPW"> 비밀번호 : </label>
+				<input type="password" id="LabePW" name="PW" required="required"/>
+			</p>
+			<p>
+				<label for="LabelBirth"> 생년월일 : </label>
+				<input type="date" id="LabelBirth" name="birth" required="required"/>
+			</p>
+		</fieldset>
+		<br/>
+		<fieldset>
+			<legend>메일수신여부</legend>
+			<p>
+				<label> 수신여부 </label>
+				<input type="radio" id="y" name="receive" value="y"/>
+				<label for="y">예</label>
+				<input type="radio" id="n" name="receive" value="n"/>
+				<label for="n">아니오</label>
+				<!-- name값을 다르게 주면 선택하고자 하는 주제가 다르므로 중복 선택을 할 수 있다.  -->
+				<br/>
+				<small>
+					라디오 버튼은 하나만 체크되고 다시 취소되지 않는다. 
+					데이터 전송시 체크된 태그만 값이 전송된다. 
+				</small>
+			</p>
+		</fieldset>
+		<br/>
+		<fieldset>
+			<legend>관심분야</legend>
+			<p>
+				<input type="checkbox" id="h" name="ch" value="html">
+				<label
+					for="h">HTML</label> <input type="checkbox" id="c" name="chk"
+					value="css"> <label for="c">CSS
+				</label> 
+				<br/> 
+				<small>
+			 		라디오 버튼은 하나만 최크되고 다시 취소되지 않는다. 데이터 전송시 체크된 태그만 값이 전송된다. 
+			 		데이터 전송시 체크된 태그만 값이 전송된다. 
+				</small>
+			</p>
+		</fieldset>
+		<br/>
+		<fieldset>
+			<legend>파일 업로드</legend>
+			<p>
+				<label for="LabelID">파일 유형 : </label>
+				<select name="sel">
+					<option value="kk">공지사항</option>
+					<option value="bb">자유게시판</option>
+					<option value="cc" selected="selected" >회원전용</option>
+				</select>
+				<br/>
+				<small>
+					데이터 전송 시 선택된 태그만 값이 전송된다. 
+				</small>
+			</p>
+			<p>
+				<label>파일 업로드</label>
+				<input type="file" name="fileupload" />
+			</p>
+		</fieldset>
+		<input type="submit" value="가입"/>
+	</form>
+</body>
+
+</html>

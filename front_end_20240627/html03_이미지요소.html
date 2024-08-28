@@ -1,0 +1,36 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="UTF-8">
+<title>html03_이미지요소.html</title>
+</head>
+
+<body>
+	<h1>이미지요소</h1>
+	<p>이미지요소는 이미지를 웹페이지에 표현할 때 사용한다.</p>
+	<p>사이즈 조절을 할 때 해상도를 고려해야 한다.</p>
+	
+	<p> 과누는 너무 귀엽당 </p>
+	<p>
+    <a href="html01_구성요소.html">
+    	<img alt="과누" src="img/myboy.jpg" width="300px" height="400px"/>
+    </a>
+    </p>
+    
+    <h1>이미지 맵 사용하기</h1>
+	<img usemap="#menu" src="img/hambuger.jpg" alt="음식 메뉴입니다."/>
+	<map name="menu"> <!-- 그룹태그 -->
+		<area alt="화이어링"
+			  href="https://blog.naver.com/bronze_yam/223495231232"
+			  shape="rect" 
+			  coords="3,20,108,125"
+			  target="_blank"
+		 />	
+	</map>
+	
+	<a target="tt" href="html01_구성요소.html">이동</a>
+	<iframe name="tt" src="html02_블럭요소와인라인요소.html"></iframe>
+</body>
+
+ 
+</html>

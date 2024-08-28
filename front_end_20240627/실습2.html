@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>실습2</title>
+
+<style>
+.tb {
+	border-collapse: collapse;
+	background-color: pink;
+	border: 1px solid black;
+}
+
+.d{
+	text-align:center;
+}
+
+</style>
+</head>
+
+<body>
+	<div>
+		<table class="tb" border="1">
+			<tr>
+				<td class="d" width="150px">성명</td>
+				<td width="500px"><input type="text" name="name" id="name" /></td>
+			<tr>
+				<td class="d">아이디</td>
+				<td><input type="text" name="id" id="id" />
+					<button>중복아이디 검사</button></td>
+			<tr>
+				<td  class="d">사진</td>
+				<td><input type="file" name="fileupload" /></td>
+			<tr>
+				<td  class="d">패스워드</td>
+				<td><input type="password" name="password" /></td>
+			<tr>
+				<td  class="d">패스워드 확인</td>
+				<td><input type="password" name="password" /></td>
+			<tr>
+				<td  class="d">연락처</td>
+				<td>
+					<p>
+						<select name="tel">
+							<option value="010" selected="selected">010</option>
+							<option value="011">011</option>
+							<option value="070">070</option>
+							<option value="032">032</option>
+							<option value="054">054</option>
+							<option value="023">023</option>
+						</select> 
+						<label> - </label>
+						 <input type="text" name="telmiddle" size=1 /> 
+						<label> - </label>
+						<input name="telend" size=1/>
+						<button>휴대폰 인증</button>
+					</p>
+					<p>
+						<label>SMS 수신동의</label> <input type="radio" name="receive"
+							value="y" /> <label>예</label> <input type="radio" name="receive"
+							value="n" /> <label>아니오</label>
+					</p>
+				</td>
+			<tr>
+				<td  class="d">이메일</td>
+				<td>
+					<p>
+						<input type="email" name="EMAIL" /> 
+							<label> 이메일 수신 동의 </label> 
+							<input type="radio" name="agree" value="y">
+							<label> 예 </label> 
+							<input type="radio" name="agree" value="n"> 
+							<label> 아니오 </label>
+					</p> 
+					<small> 
+						회원가입 완료시 인증메일이 발송되오니 정확한 메일 주소를 기재해 주세요! 
+					</small>
+
+				</td>
+			<tr>
+				<td  class="d">지역 선택</td>
+				<td><select name="sel">
+						<option value="kk">서울</option>
+						<option value="kongki">경기</option>
+						<option value="incheon">인천</option>
+						<option value="kangwon">강원도</option>
+						<option value="sangbuk">경상북도</option>
+						<option value="sangnam">경상남도</option>
+						<option value="jeonbuk">전라북도</option>
+						<option value="jeonnam">전라남도</option>
+						<option value="jejo">제주도</option>
+						<option value="dokdo">독도</option>
+						<option value="cc" selected="selected">- 지역선택 -</option>
+				</select></td>
+		</table>
+	</div>
+</body>
+</html>
